@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "27560203573",
+    "project_id": "last-ti",
+    "storage_bucket": "last-ti.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:27560203573:android:ae79f869e198b2f41ae87c",
+        "android_client_info": {
+          "package_name": "com.example.thelasttime"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "27560203573-2jepaic6c0ggccpkeen237ie8fnhgd5u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhvVy1FxKoLpNTkQnWh5-JaOhPXyqu7ss"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "27560203573-2jepaic6c0ggccpkeen237ie8fnhgd5u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
