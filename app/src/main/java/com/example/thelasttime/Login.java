@@ -124,7 +124,7 @@ public class Login extends AppCompatActivity {
     }
 
     private Boolean validateUsername() {
-        String val = userLogin.toString();
+        String val = userLogin.getEditText().getText().toString();
         if (val.isEmpty()) {
             userLogin.setError("Field cannot be empty");
             return false;
@@ -135,7 +135,7 @@ public class Login extends AppCompatActivity {
     }
 
     private Boolean validatePassword() {
-        String val = passLogin.toString();
+        String val = passLogin.getEditText().getText().toString();
         if (val.isEmpty()) {
             passLogin.setError("Field cannot be empty");
             return false;
