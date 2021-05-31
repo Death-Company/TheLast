@@ -24,7 +24,7 @@
                 android:src="@drawable/avatar" />
 
             <TextView
-                android:id="@+id/name"
+                android:id="@+id/txtProfileUsername"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
@@ -34,14 +34,7 @@
                 android:text="Nguyễn Đăng Tuấn Đan"
                 android:textSize="20dp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/name"
-                android:layout_toRightOf="@+id/avatar"
-                android:includeFontPadding="false"
-                android:text="tuan_dann"
-                android:textSize="16dp" />
+
         </RelativeLayout>
 
         <LinearLayout
@@ -145,6 +138,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/edtProfileFullname"
                 android:layout_marginBottom="7dp"
                 android:hint="Full Name">
                 <com.google.android.material.textfield.TextInputEditText
@@ -152,7 +146,6 @@
                     android:layout_height="wrap_content"
                     android:background="#fff"
                     android:drawablePadding="10dp"
-                    android:text="Nguyễn Đăng Tuấn Đan"
                     android:layout_marginTop="-14dp"/>
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -161,14 +154,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="7dp"
+                android:id="@+id/edtProfileEmail"
                 android:hint="Email">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="#fff"
-                    android:drawablePadding="10dp"
-                    android:text="tuandann23@gmail.com" />
+                    android:drawablePadding="10dp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -176,14 +169,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="7dp"
+                android:id="@+id/edtProfilePhone"
                 android:hint="Phone Number">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="#fff"
-                    android:drawablePadding="10dp"
-                    android:text="0945081591" />
+                    android:drawablePadding="10dp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -191,14 +184,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="7dp"
+                android:id="@+id/edtProfilePass"
                 android:hint="Password">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="#fff"
-                    android:drawablePadding="10dp"
-                    android:text="1234567890" />
+                    android:drawablePadding="10dp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 

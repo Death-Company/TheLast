@@ -1,10 +1,18 @@
 package com.example.thelasttime;
 
+import android.content.ClipData;
+import android.content.Intent;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.MenuItem;
 import android.view.WindowManager;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -14,10 +22,13 @@ import com.example.thelasttime.HelperClass.HomeAdapter.FeatureAdpater;
 import com.example.thelasttime.HelperClass.HomeAdapter.FeaturedHelpersClass;
 import com.example.thelasttime.HelperClass.HomeAdapter.ViewedCard;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 
-public class mmeennuu extends AppCompatActivity {
+public class mmeennuu extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     RecyclerView viewedCard;
     ViewedCard adapter1;
@@ -25,18 +36,16 @@ public class mmeennuu extends AppCompatActivity {
     FeatureAdpater adapter;
     RecyclerView catgoriersCard;
     CatgoriersCard adapter2;
-
     //Drawer Menu
     DrawerLayout drawerLayout;
     NavigationView navigationView;
-
+    FirebaseAuth fAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_mmeennuu);
-
         featuredRecycler = findViewById(R.id.featred_recycler);
         featuredRecycler();
         viewedCard = findViewById(R.id.featred_recycler1);
@@ -48,7 +57,14 @@ public class mmeennuu extends AppCompatActivity {
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.menu_drawer);
 
+        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(mmeennuu.this,
+                drawerLayout,
+                R.string.open,
+                R.string.close);
+        drawerLayout.addDrawerListener(actionBarDrawerToggle);
+        actionBarDrawerToggle.syncState();
 
+        navigationView.setNavigationItemSelectedListener(this);
     }
 
     private void featuredRecycler() {
@@ -69,7 +85,6 @@ public class mmeennuu extends AppCompatActivity {
         GradientDrawable gradient = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, new int[]{0xffeff400, 0xffaff600});
 
     }
-
 
 
     private void viewedCard() {
@@ -106,5 +121,35 @@ public class mmeennuu extends AppCompatActivity {
         GradientDrawable gradient = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, new int[]{0xffeff400, 0xffaff600});
     }
 
+
+    //onclick
+    @Override
+    public boolean onNavigationItemSelected(@NonNull @NotNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.ProfileMenu:
+                Toast.makeText(mmeennuu.this,"profile",Toast.LENGTH_LONG).show();
+                Intent inten = new Intent(getApplication(),Profile.class);
+                startActivity(inten);
+                break;
+            case R.id.SignoutMenu:
+                FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(mmeennuu.this,Login.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK| Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+                break;
+        }
+        drawerLayout.closeDrawer(GravityCompat.START);
+        return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+        if(drawerLayout.isDrawerOpen(GravityCompat.START)){
+            drawerLayout.closeDrawer(GravityCompat.START);
+        }
+        else{
+            super.onBackPressed();
+        }
+    }
 }
 

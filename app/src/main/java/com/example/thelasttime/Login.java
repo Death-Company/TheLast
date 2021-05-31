@@ -4,7 +4,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -75,8 +77,19 @@ public class Login extends AppCompatActivity {
                                     userLogin.setError(null);
                                     userLogin.setErrorEnabled(false);
 
-                                    Intent intent = new Intent(getApplication(), mmeennuu.class);
+                                    String fullnameDB = snapshot.child(usernameEntered).child("fullname").getValue(String.class);
+                                    String emailDB = snapshot.child(usernameEntered).child("email").getValue(String.class);
+                                    String phoneDB = snapshot.child(usernameEntered).child("phone").getValue(String.class);
+                                    String userDB = snapshot.child(usernameEntered).child("username").getValue(String.class);
+                                    //putdata
 
+                                    //start menu
+                                    Intent intent = new Intent(getApplication(), mmeennuu.class);
+                                    intent.putExtra("fullname",fullnameDB);
+                                    intent.putExtra("email",emailDB);
+                                    intent.putExtra("phone",phoneDB);
+                                    intent.putExtra("pass",passDB);
+                                    intent.putExtra("username",userDB);
                                     startActivity(intent);
                                 } else {
                                     passLogin.setError("Wrong password");
