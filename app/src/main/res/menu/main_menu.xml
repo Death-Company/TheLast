@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/ProfileMenu"
+        android:icon="@drawable/profile_menu"
+        android:title="MY PROFILE" />
+
+    <item
+        android:id="@+id/HomeMenu"
+        android:icon="@drawable/home_menu"
+        android:title="HOME" />
+    <item
+        android:id="@+id/SearchMenu"
+        android:icon="@drawable/search_menu"
+        android:title="SHEARCH" />
+    <item
+        android:id="@+id/QrMenu"
+        android:icon="@drawable/qr_menu"
+        android:title="QR CODE" />
+    <item
+        android:id="@+id/MapMenu"
+        android:icon="@drawable/map_menu"
+        android:title="MAP" />
+
+    <item android:title="Categories">
+        <menu>
+
+            <group android:checkableBehavior="single">
+
+                <item
+                    android:id="@+id/RestaurantMenu"
+                    android:icon="@drawable/restaurant_menu"
+                    android:title="RESTAURANT" />
+                <item
+                    android:id="@+id/HotelMenu"
+                    android:icon="@drawable/hotel_menu"
+                    android:title="HOTEL" />
+                <item
+                    android:id="@+id/ShoppingMenu"
+                    android:icon="@drawable/shopping_menu"
+                    android:title="SHOPPING" />
+                <item
+                    android:id="@+id/CinemaMenu"
+                    android:icon="@drawable/cinema_menu"
+                    android:title="CINEMA" />
+            </group>
+
+        </menu>
+    </item>
+
+    <item
+        android:id="@+id/SignoutMenu"
+        android:icon="@drawable/signout_menu"
+        android:title="SIGN OUT" />
+
+</menu>
+
+
+
+
+
+
+
