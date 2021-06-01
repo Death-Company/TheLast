@@ -40,6 +40,7 @@ public class SignUp extends AppCompatActivity {
         getSupportActionBar().hide();
         setContentView(R.layout.activity_sign_up);
 
+
         btnsignup = findViewById(R.id.btnSignup);
         fullname = findViewById(R.id.edtFullname);
         email = findViewById(R.id.edtEmail);

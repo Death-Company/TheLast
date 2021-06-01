@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.WindowManager;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -23,7 +22,6 @@ import com.example.thelasttime.HelperClass.HomeAdapter.FeatureAdpater;
 import com.example.thelasttime.HelperClass.HomeAdapter.FeaturedHelpersClass;
 import com.example.thelasttime.HelperClass.HomeAdapter.ViewedCard;
 import com.google.android.material.navigation.NavigationView;
-import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
 
 import org.jetbrains.annotations.NotNull;
@@ -31,8 +29,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 
 public class mmeennuu extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-    TextInputLayout fullname,email,phoneN0,pass;
-    TextView username;
+
     RecyclerView viewedCard;
     ViewedCard adapter1;
     RecyclerView featuredRecycler;
@@ -130,7 +127,9 @@ public class mmeennuu extends AppCompatActivity implements NavigationView.OnNavi
     public boolean onNavigationItemSelected(@NonNull @NotNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.ProfileMenu:
-                showUser();
+                Toast.makeText(mmeennuu.this,"profile",Toast.LENGTH_LONG).show();
+                Intent inten = new Intent(getApplication(),Profile.class);
+                startActivity(inten);
                 break;
             case R.id.SignoutMenu:
                 FirebaseAuth.getInstance().signOut();
@@ -151,25 +150,6 @@ public class mmeennuu extends AppCompatActivity implements NavigationView.OnNavi
         else{
             super.onBackPressed();
         }
-    }
-
-    private void showUser() {
-        Intent intent = getIntent();
-        String fullnameDB = intent.getStringExtra("fullname");
-        String emailDB = intent.getStringExtra("email");
-        String phoneDB = intent.getStringExtra("phone");
-        String passDB = intent.getStringExtra("pass");
-        String userDB = intent.getStringExtra("username");
-
-       //again
-
-        Intent intentt = new Intent(getApplication(), Profile.class);
-        intentt.putExtra("fullname",fullnameDB);
-        intentt.putExtra("email",emailDB);
-        intentt.putExtra("phone",phoneDB);
-        intentt.putExtra("pass",passDB);
-        intentt.putExtra("username",userDB);
-        startActivity(intentt);
     }
 }
 

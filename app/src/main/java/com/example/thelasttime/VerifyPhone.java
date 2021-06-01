@@ -54,6 +54,7 @@ public class VerifyPhone extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_verify_phone);
+
         //button
         verify = findViewById(R.id.btnVerify);
         sendotp = findViewById(R.id.btnSendotp);
